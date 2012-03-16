@@ -1,12 +1,12 @@
 Summary:	PostgreSQL module for Ruby
 Summary(pl.UTF-8):	Moduł PostgreSQL dla Ruby
 Name:		ruby-pg
-Version:	0.9.0
+Version:	0.13.2
 Release:	1
 License:	Ruby License
 Group:		Development/Languages
-Source0:	http://bitbucket.org/ged/ruby-pg/downloads/pg-%{version}.tar.gz
-# Source0-md5:	327d951a0dbc5c4d08873ff065269fa6
+Source0:	http://bitbucket.org/ged/ruby-pg/get/v%{version}.tar.gz
+# Source0-md5:	6dfc70279ae5f8ea0d5cfb318086c5fd
 URL:		http://rubyforge.org/projects/ruby-pg/
 BuildRequires:	postgresql-devel
 BuildRequires:	rpmbuild(macros) >= 1.277
@@ -23,7 +23,9 @@ PostgreSQL module for Ruby.
 Moduł PostgreSQL dla Ruby.
 
 %prep
-%setup -q -n pg-%{version}
+%setup -q -n ged-ruby-pg-c79cd308363d
+# -n pg-%{version}
+#mv ged-ruby-pg-c79cd308363d pg-%{version}
 cp %{_datadir}/setup.rb .
 
 %build
@@ -46,5 +48,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README*
+%{ruby_rubylibdir}/pg
 %{ruby_rubylibdir}/pg.rb
 %attr(755,root,root) %{ruby_archdir}/pg_ext.so
